@@ -1,0 +1,33 @@
+{
+    "manifest_version": 2,
+
+    "name": "RSS Finder",
+    "short_name": "RSS Finder",
+    "description": "Lists RSS and Atom feeds available on the current web page.",
+    "version": "1.0",
+
+    "browser_action": {
+        "default_icon": {
+            "48": "img/rss_48.png"
+        },
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": true
+    },
+    "icons": {
+        "48": "img/rss_48.png",
+        "128": "img/rss_128.png"
+    },
+    "permissions": [
+        "<all_urls>",
+        "activeTab",
+        "storage",
+        "tabs"
+    ],
+    "content_security_policy": "script-src 'self'; object-src 'self'"
+}

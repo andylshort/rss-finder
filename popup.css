@@ -1,0 +1,94 @@
+* {
+    font-size: 0.95rem;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#feeds {
+    list-style: none;
+    padding: 4px;
+    margin: 0;
+}
+
+li.rssLink {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+}
+
+li.rssLink:hover {
+    background-color: #ffe9b2;
+}
+
+.rssUrl {
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 2px;
+    display: block;
+}
+
+li.rssLink>div {
+    flex: 1;
+}
+
+li.rssLink:not(:last-child) {
+    border-bottom: 1px solid #efefef;
+}
+
+li.rssLink:nth-child(2n) {
+    background-color: rgb(228, 228, 228);
+}
+
+#copyButton {
+    background-color: #F4B83F;
+    color: #222;
+    border-radius: 2px;
+    border: 0px;
+    padding: 4px;
+}
+
+#copyButton:hover {
+    cursor: pointer;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: #F4B83F;
+}
+
+input {
+    vertical-align: middle;
+}
+
+footer>a,
+footer>form {
+    padding: 4px;
+    color: #222;
+    display: block;
+    text-decoration: none !important;
+}
+
+footer>a:hover {
+    text-decoration: underline !important;
+}
+
+#donateForm {
+    float: left;
+    background-color: #fff;
+}
+
+#donateForm>input[name="submit"]:hover {
+    cursor: pointer;
+}
+
+#developer {
+    float: right;
+}
