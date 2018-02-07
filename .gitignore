@@ -1,1 +1,4 @@
 build/
+screenshots/
+*.zip
+description.txt

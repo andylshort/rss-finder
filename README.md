@@ -1,6 +1,15 @@
 # ![alt text](img/rss_32.png) RSS Finder
 
-Lists RSS and Atom feeds available on the current web page.
+An extension that scrapes each page that you visit in turn for any active RSS or Atom urls and presents them as a list for you to copy for use with news readers and aggregators.
+
+Current behaviours:
+
+* Standard page scraping for meta tags pointing to application/rss+xml or application/atom+xml
+* Scraping of YouTube pages to obtain the link to the lesser known feeds behind each channel
+
+More features to come.
+
+Free.
 
 ## License
 
