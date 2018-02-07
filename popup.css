@@ -55,6 +55,7 @@ li.rssLink:nth-child(2n) {
 
 #copyButton:hover {
     cursor: pointer;
+    background-color: rgb(253, 173, 0);
 }
 
 
@@ -62,33 +63,53 @@ li.rssLink:nth-child(2n) {
 
 footer {
     background-color: #F4B83F;
+    display: flex;
+    align-items: center;
 }
 
-input {
+footer>ul {
+    margin: 0;
+    margin-left: auto;
+    padding: 0;
+    color: #222;
+    text-decoration: none !important;
+    list-style-type: none;
+}
+
+footer>form {
+    margin: -1px 0 0 0 !important;
+    padding: 0 0 1px 0 !important;
+    overflow: hidden;
+    display: block;
+    background-color: #fff;
+    height: 100%;
+}
+
+footer>form>input {
     vertical-align: middle;
 }
 
-footer>a,
-footer>form {
+footer>form>input[name="submit"] {
     padding: 4px;
-    color: #222;
-    display: block;
-    text-decoration: none !important;
 }
 
-footer>a:hover {
-    text-decoration: underline !important;
-}
-
-#donateForm {
-    float: left;
-    background-color: #fff;
-}
-
-#donateForm>input[name="submit"]:hover {
+footer>form>input[name="submit"]:hover {
     cursor: pointer;
 }
 
-#developer {
-    float: right;
+footer>ul>li {
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+footer>ul>li>a {
+    display: block;
+    padding: 5px;
+    text-decoration: none !important;
+    color: #222;
+}
+
+footer>ul>li>a:hover {
+    background-color: rgb(252, 225, 168);
 }

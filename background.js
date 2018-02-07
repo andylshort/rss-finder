@@ -12,6 +12,12 @@ function updateBrowserAction(hasRss, tabId) {
     }
 }
 
+function emailSupport() {
+    var support = "mailto:" + "support@";
+    support += "andyls.c" + "o.uk";
+    window.open(support);
+}
+
 // Listen for any changes to the URL of any tab.
 chrome.tabs.onActivated.addListener(function(activeInfo) {
     let tabId = activeInfo.tabId;
@@ -28,5 +34,7 @@ chrome.runtime.onMessage.addListener(
         if ('rss' in request) {
             feeds = request.rss;
             updateBrowserAction(request.rss, sender.tab.id);
+        } else if ('email' in request) {
+            emailSupport();
         }
     });
