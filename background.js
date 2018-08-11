@@ -4,11 +4,22 @@ function runPageContentCheck(tabId) {
     chrome.tabs.executeScript(tabId, { file: "rss_scrape.js" }, function() {});
 }
 
+function disableBrowserAction(tabId) {
+    chrome.browserAction.disable(tabId);
+    chrome.browserAction.setTitle({
+        title: "No feeds found"
+    });
+}
+
 function updateBrowserAction(hasRss, tabId) {
+    console.log("Has RSS? " + hasRss);
     if (hasRss) {
         chrome.browserAction.enable(tabId);
+        chrome.browserAction.setTitle({
+            title: "Found " + feeds.length + " feed(s)"
+        });
     } else {
-        chrome.browserAction.disable(tabId);
+        disableBrowserAction(tabId);
     }
 }
 
@@ -21,20 +32,19 @@ function emailSupport() {
 // Listen for any changes to the URL of any tab.
 chrome.tabs.onActivated.addListener(function(activeInfo) {
     let tabId = activeInfo.tabId;
-    chrome.browserAction.disable(tabId);
+    disableBrowserAction(tabId);
     runPageContentCheck(tabId);
 });
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-    chrome.browserAction.disable(tabId);
+    disableBrowserAction(tabId);
     runPageContentCheck(tabId);
 });
 
-chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
-        if ('rss' in request) {
-            feeds = request.rss;
-            updateBrowserAction(request.rss, sender.tab.id);
-        } else if ('email' in request) {
-            emailSupport();
-        }
-    });
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if ('rss' in request) {
+        feeds = request.rss;
+        updateBrowserAction(request.rss, sender.tab.id);
+    } else if ('email' in request) {
+        emailSupport();
+    }
+});

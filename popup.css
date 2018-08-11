@@ -1,5 +1,5 @@
 * {
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 html,
@@ -10,14 +10,14 @@ body {
 
 #feeds {
     list-style: none;
-    padding: 4px;
     margin: 0;
+    padding: 4px;
 }
 
 li.rssLink {
-    list-style: none;
-    display: flex;
     align-items: center;
+    display: flex;
+    list-style: none;
     padding: 2px;
 }
 
@@ -26,63 +26,68 @@ li.rssLink:hover {
 }
 
 .rssUrl {
-    max-width: 300px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 2px;
     display: block;
+    max-width: 300px;
+    min-width: 200px;
+    overflow: hidden;
+    padding: 2px;
+    text-overflow: ellipsis;
 }
 
-li.rssLink>div {
+li.rssLink > div {
     flex: 1;
 }
 
 li.rssLink:not(:last-child) {
-    border-bottom: 1px solid #efefef;
+    /*border-bottom: 1px solid #efefef;*/
 }
 
 li.rssLink:nth-child(2n) {
-    background-color: rgb(228, 228, 228);
+    background-color: #efefef;
+}
+li.rssLink:nth-child(2n):hover {
+    background-color: #ffe9b2;
 }
 
 #copyButton {
     background-color: #F4B83F;
-    color: #222;
-    border-radius: 2px;
     border: 0px;
+    border-radius: 2px;
+    color: #222;
+    float: right;
+    margin-left: 5px;
     padding: 4px;
 }
 
 #copyButton:hover {
-    cursor: pointer;
     background-color: rgb(253, 173, 0);
+    cursor: pointer;
 }
 
 
 /* Footer */
-
 footer {
-    background-color: #F4B83F;
-    display: flex;
     align-items: center;
+    background-color: #F4B83F;
+    display: none; /*flex;*/
 }
 
-footer>ul {
+footer > ul {
+    color: #222;
+    list-style-type: none;
     margin: 0;
     margin-left: auto;
     padding: 0;
-    color: #222;
     text-decoration: none !important;
-    list-style-type: none;
 }
 
-footer>form {
-    margin: -1px 0 0 0 !important;
-    padding: 0 0 1px 0 !important;
-    overflow: hidden;
-    display: block;
+footer > form {
     background-color: #fff;
+    display: block;
     height: 100%;
+    margin: -1px 0 0 0 !important;
+    overflow: hidden;
+    padding: 0 0 1px 0 !important;
 }
 
 footer>form>input {

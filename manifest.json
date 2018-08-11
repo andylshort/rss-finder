@@ -4,7 +4,7 @@
     "name": "RSS Finder",
     "short_name": "RSS Finder",
     "description": "Lists RSS and Atom feeds available on the current web page.",
-    "version": "1.0",
+    "version": "1.1",
 
     "browser_action": {
         "default_icon": {
@@ -20,6 +20,7 @@
         "chrome_style": true
     },
     "icons": {
+        "16": "img/rss_16.png",
         "48": "img/rss_48.png",
         "128": "img/rss_128.png"
     },

@@ -1,42 +1,15 @@
 function copyTextToClipboard(text) {
     var textArea = document.createElement("textarea");
-
-    //
-    // *** This styling is an extra step which is likely not required. ***
-    //
-    // Why is it here? To ensure:
-    // 1. the element is able to have focus and selection.
-    // 2. if element was to flash render it has minimal visual impact.
-    // 3. less flakyness with selection and copying which **might** occur if
-    //    the textarea element is not visible.
-    //
-    // The likelihood is the element won't even render, not even a flash,
-    // so some of these are just precautions. However in IE the element
-    // is visible whilst the popup box asking the user for permission for
-    // the web page to copy to the clipboard.
-    //
-
-    // Place in top-left corner of screen regardless of scroll position.
     textArea.style.position = 'fixed';
     textArea.style.top = 0;
     textArea.style.left = 0;
-
-    // Ensure it has a small width and height. Setting to 1px / 1em
-    // doesn't work as this gives a negative w/h on some browsers.
     textArea.style.width = '2em';
     textArea.style.height = '2em';
-
-    // We don't need padding, reducing the size if it does flash render.
     textArea.style.padding = 0;
-
-    // Clean up any borders.
     textArea.style.border = 'none';
     textArea.style.outline = 'none';
     textArea.style.boxShadow = 'none';
-
-    // Avoid flash of white box if rendered for any reason.
     textArea.style.background = 'transparent';
-
 
     textArea.value = text;
 
@@ -59,32 +32,44 @@ var contactButton = document.getElementById("support");
 var aboutButton = document.getElementById("about");
 
 contactButton.addEventListener("click", function() {
-    chrome.runtime.sendMessage({ email: '' });
+    chrome.runtime.sendMessage({ email: 'support@andyls.co.uk' });
 });
 
 aboutButton.addEventListener("click", function() {
     if (chrome.runtime.openOptionsPage) {
-        // New way to open options pages, if supported (Chrome 42+).
         chrome.runtime.openOptionsPage();
     } else {
-        // Reasonable fallback.
         window.open(chrome.runtime.getURL('options.html'));
     }
 });
 
+var chromeFeeds = [];
+
+if (chrome.extension) {
+    chromeFeeds = chrome.extension.getBackgroundPage().feeds;
+} else {
+    // Test feeds
+    chromeFeeds = [
+        "http://www.google.co.uk",
+        "http://abc.xyz",
+        "http://www.youtube.com"
+    ];
+}
+
 window.addEventListener("load", function() {
     var feedList = document.getElementById("feeds");
     console.log("Getting...");
-    var feeds = chrome.extension.getBackgroundPage().feeds;
+    var feeds = chromeFeeds;
     feedList.innerHTML = "";
+
     for (var i = 0; i < feeds.length; i++) {
         console.log("Feed: " + feeds[i]);
 
         var listItem = document.createElement("li");
         listItem.setAttribute("class", "rssLink");
 
-        var divText = document.createElement("div");
-        var divButton = document.createElement("div");
+        // var divText = document.createElement("div");
+        // var divButton = document.createElement("div");
 
         var text = document.createElement("a");
         text.setAttribute("class", "rssUrl");
@@ -99,11 +84,14 @@ window.addEventListener("load", function() {
         copyButton.setAttribute("title", "Copy feed link");
         copyButton.setAttribute("value", feeds[i]);
 
-        divText.appendChild(text);
-        divButton.appendChild(copyButton);
+        // divText.appendChild(text);
+        // divButton.appendChild(copyButton);
 
-        listItem.appendChild(divText);
-        listItem.appendChild(divButton);
+        // listItem.appendChild(divText);
+        // listItem.appendChild(divButton);
+
+        listItem.appendChild(text);
+        listItem.appendChild(copyButton);
 
         feedList.appendChild(listItem);
     }

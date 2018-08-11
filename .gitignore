@@ -1,4 +1,8 @@
-build/
 screenshots/
 *.zip
 description.txt
+releases/*
+*.xcf
+*.pem
+img/magnifying glass.png
+test.html
