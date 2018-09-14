@@ -1,6 +1,6 @@
 # ![alt text](img/rss_32.png) RSS Finder
 
-![Chrome Web Store Link](https://chrome.google.com/webstore/detail/rss-finder/ijdgeedipkpmcliidjhbemmlgibfnaff)
+[Chrome Web Store Link](https://chrome.google.com/webstore/detail/rss-finder/ijdgeedipkpmcliidjhbemmlgibfnaff)
 
 An extension that scrapes each page that you visit in turn for any active RSS or Atom urls and presents them as a list for you to copy for use with news readers and aggregators.
 
