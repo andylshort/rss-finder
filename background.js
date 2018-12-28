@@ -9,6 +9,11 @@ function disableBrowserAction(tabId) {
     chrome.browserAction.setTitle({
         title: "No feeds found"
     });
+
+    chrome.browserAction.setIcon({
+        path: "img/rss_grey_48.png",
+        tabId: tabId
+    });
 }
 
 function updateBrowserAction(hasRss, tabId) {
@@ -17,6 +22,10 @@ function updateBrowserAction(hasRss, tabId) {
         chrome.browserAction.enable(tabId);
         chrome.browserAction.setTitle({
             title: "Found " + feeds.length + " feed(s)"
+        });
+        chrome.browserAction.setIcon({
+            path: "img/rss_48.png",
+            tabId: tabId
         });
     } else {
         disableBrowserAction(tabId);
