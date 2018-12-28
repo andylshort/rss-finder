@@ -6,3 +6,4 @@ releases/*
 *.pem
 img/magnifying glass.png
 test.html
+.DS_Store
