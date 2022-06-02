@@ -1,0 +1,12 @@
+:root {
+    --light-color: #000;
+    --light-button-color: orange;
+    --light-button-hover-color: teal;
+    --light-link-color: blue;
+
+    --dark-color: rgb(249, 249, 250);
+    --dark-bg-color: rgb(42, 42, 46);
+    --dark-button-color: orange;
+    --dark-button-hover-color: teal;
+    --dark-link-color: deepskyblue;
+}

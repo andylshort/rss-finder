@@ -1,0 +1,39 @@
+{
+    "manifest_version": 2,
+
+    "name": "RSS Finder",
+    "short_name": "RSS Finder",
+    "description": "Lists RSS and Atom feeds available on the current web page.",
+    "version": "1.1",
+    "homepage_url": "https://andyls.co.uk",
+    "icons": {
+        "16": "img/rss_16.png",
+        "48": "img/rss_48.png",
+        "128": "img/rss_128.png"
+    },
+
+    "page_action": {
+        "default_icon": {
+            "48": "img/rss_48.png"
+        }
+    },
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["js/document.js"],
+        "run_at": "document_end"
+    }],
+
+    "options_ui": {
+        "page": "options.html",
+        "browser_style": true,
+        "chrome_style": true
+    },
+    "permissions": [
+        "<all_urls>",
+        "activeTab"
+    ]
+}

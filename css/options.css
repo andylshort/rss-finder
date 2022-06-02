@@ -1,0 +1,44 @@
+body,
+html {
+	margin: 0;
+	padding: 0;
+}
+
+.options {    
+    overflow-y: scroll;
+    padding: 0 15px;
+}
+
+#coming-soon {
+    color: #ccc;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+footer {
+	/* display: flex !important; */
+	padding: 10px 20px;
+	text-align: center;
+}
+
+footer > div {
+	flex: 1;
+}
+
+.col2 {
+	/* width: 49%; */
+}
+.col2:not(:last-child) {
+	border-right: 1px solid #ccc;
+}
+
+@media (prefers-color-scheme: dark)  {
+    body {
+        background-color: var(--dark-bg-color);
+        color: var(--dark-color);
+    }
+
+    a {
+        color: var(--dark-link-color);
+    }
+}

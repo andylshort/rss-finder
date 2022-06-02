@@ -1,8 +1,8 @@
-screenshots/
-*.zip
-description.txt
-releases/*
+# Builds
+*-build/
+
+# Test releases
 *.xcf
 *.pem
-img/magnifying glass.png
-test.html
+*.xpi
+*.zip

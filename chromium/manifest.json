@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+
+    "name": "RSS Finder",
+    "short_name": "RSS Finder",
+    "description": "Lists RSS and Atom feeds available on the current web page.",
+    "version": "1.2",
+    "homepage_url": "https://andyls.co.uk/projects/rss-finder",
+    "icons": {
+        "16": "img/rss_16.png",
+        "48": "img/rss_48.png",
+        "128": "img/rss_128.png"
+    },
+
+    "action": {
+        "default_icon": {
+            "48": "img/rss_48.png"
+        }
+    },
+    "background": {
+        "service_worker": "js/background.js"
+    },
+
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": false
+    },
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ]
+}
