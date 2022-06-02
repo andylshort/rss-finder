@@ -1,5 +1,5 @@
 * {
-    font-size: 1rem;
+    font-size: 14px;
 }
 
 html,
@@ -50,7 +50,7 @@ li.rssLink:nth-child(2n):hover {
 }
 
 #copyButton {
-    background-color: #F4B83F;
+    background-color: var(--light-button-color);
     border: 0px;
     border-radius: 2px;
     color: #222;
@@ -60,8 +60,15 @@ li.rssLink:nth-child(2n):hover {
 }
 
 #copyButton:hover {
-    background-color: rgb(253, 173, 0);
+    background-color: var(--light-button-hover);
     cursor: pointer;
+    color: #ffffff;
+}
+
+#copyButton:active {
+    -webkit-box-shadow: inset 0px 0px 15px 5px #003D51; 
+    box-shadow: inset 0px 0px 15px 5px #003D51;
+    color: #ffffff;
 }
 
 
@@ -69,52 +76,42 @@ li.rssLink:nth-child(2n):hover {
 footer {
     align-items: center;
     background-color: #F4B83F;
-    display: none; /*flex;*/
 }
 
 footer > ul {
     color: #222;
     list-style-type: none;
     margin: 0;
-    margin-left: auto;
     padding: 0;
     text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-footer > form {
-    background-color: #fff;
-    display: block;
-    height: 100%;
-    margin: -1px 0 0 0 !important;
-    overflow: hidden;
-    padding: 0 0 1px 0 !important;
-}
-
-footer>form>input {
-    vertical-align: middle;
-}
-
-footer>form>input[name="submit"] {
-    padding: 4px;
-}
-
-footer>form>input[name="submit"]:hover {
-    cursor: pointer;
-}
-
-footer>ul>li {
+footer > ul > li {
     margin: 0;
     padding: 0;
-    float: left;
 }
 
-footer>ul>li>a {
+footer > ul > li > a {
     display: block;
     padding: 5px;
     text-decoration: none !important;
     color: #222;
 }
 
-footer>ul>li>a:hover {
+footer > ul > li > a:hover {
     background-color: rgb(252, 225, 168);
+}
+
+@media (prefers-color-scheme: dark)  {
+    body {
+        background-color: var(--dark-bg-color);
+        color: var(--dark-color);
+    }
+
+    a {
+        color: var(--dark-link-color);
+    }
 }

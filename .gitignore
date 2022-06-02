@@ -1,9 +1,15 @@
-screenshots/
-*.zip
-description.txt
-releases/*
+# Builds
+*-build/
+
+# Node
+node_modules
+
+# Test releases
 *.xcf
 *.pem
-img/magnifying glass.png
-test.html
+*.xpi
+*.zip
+*.crx
+
+# OS-specific artifacts
 .DS_Store
